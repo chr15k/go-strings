@@ -2,6 +2,8 @@
 
 Some useful string manipulation functions, extending the standard `strings` Go library.
 
+Only Go standard libs are used. Please feel free to contribute.
+
 ## Usage
 
 ```go
