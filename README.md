@@ -21,3 +21,7 @@ func main() {
 	fmt.Println(mask) // chr********le.com
 }
 ```
+
+## Documentation
+
+Visit [go.dev](https://pkg.go.dev/github.com/chr15k/go-strings#section-documentation)
