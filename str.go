@@ -11,6 +11,8 @@ import (
 	"strconv"
 	"strings"
 	"unicode/utf8"
+
+	"github.com/chr15k/go-strings/internal/utils"
 )
 
 // Return the remainder of a string after the first occurrence of a given value.
@@ -153,7 +155,7 @@ func Is(patterns interface{}, value string) bool {
 			return true
 		}
 
-		matched, _ := regexp.MatchString(wildCardToRegexp(pattern), value)
+		matched, _ := regexp.MatchString(utils.WildCardToRegexp(pattern), value)
 		if matched {
 			return true
 		}
@@ -503,22 +505,6 @@ func Ucfirst(value string) string {
 // Convert the given string to upper-case.
 func Upper(value string) string {
 	return strings.ToUpper(value)
-}
-
-// Convert wildcard to regex pattern
-func wildCardToRegexp(pattern string) string {
-	components := strings.Split(pattern, "*")
-	if len(components) == 1 {
-		return "^" + pattern + "$"
-	}
-	var result strings.Builder
-	for i, literal := range components {
-		if i > 0 {
-			result.WriteString(".*")
-		}
-		result.WriteString(regexp.QuoteMeta(literal))
-	}
-	return "^" + result.String() + "$"
 }
 
 // Limit the number of words in a string.
